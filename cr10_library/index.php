@@ -24,11 +24,11 @@
 				</li>
 				<li class="nav-item pt-2">
 			
-					<a class="nav-link text-light" href="index.php"><h2>Active</h2></a>
+					<a class="nav-link text-light" href="index.php"><h2>Home</h2></a>
 				</li>
 				<li class="nav-item pt-2">
 				
-					<a class="nav-link text-light" href="#"><h2>Link</h2></a>
+					<a class="nav-link text-light" href="create.php"><h2>Create</h2></a>
 				</li>
 			</ul>
 			</div>
@@ -70,7 +70,7 @@
 		$sql = "SELECT * FROM  media";
 
 		$result = mysqli_query($conn, $sql);
-			$conn->close();
+			
 		if ($result->num_rows == 0){
 			echo "No result";
 		}elseif($result->num_rows == 1){
@@ -86,18 +86,20 @@
 					    <p class="card-text">'.$value["discription"] .'</p>
 					  </div>
 					  <ul class="list-group list-group-flush">
-					    <li class="list-group-item">'. $value["ISBN_Code"].'</li>
-					    <li class="list-group-item">'.$value["publish_date"] .'</li>
-					    <li class="list-group-item">'.$value["type"] .'</li>
-					    <li class="list-group-item">'.$value["media_status"] .'</li>
+					    <li class="list-group-item"> ISDN-Code: '. $value["ISBN_Code"].'</li>
+					    <li class="list-group-item">Published: '.$value["publish_date"] .'</li>
+					    <li class="list-group-item"> Type: '.$value["type"] .'</li>
+					    <li class="list-group-item"> Media status: '.$value["media_status"] .'</li>
 					  </ul>
 					  <div class="card-body">
-					    <a class="card-link" href="update.php?id='.$value["id_media"].'">Update</a>
-					    <a class="card-link" href="delete.php?id='.$value["id_media"].'">Delete</a><br>
+					  	
+					     <a class="card-link" href="update.php?id_media='.$value["id_media"].'">Update</a>
+					     <a class="card-link" href="delete.php?id_media='.$value["id_media"].'">Delete</a><br>
 					  </div>
 				</div>';	
 			}
 		}
+	
 
 	?>
 
@@ -122,11 +124,11 @@
 				<ul class="nav nav-pills justify-content-center">
 					<li class="nav-item pt-2">
 				
-						<a class="nav-link text-light" href="index.php"><h2>Active</h2></a>
+						<a class="nav-link text-light" href="index.php"><h2>Home</h2></a>
 					</li>
 					<li class="nav-item pt-2">
 					
-						<a class="nav-link text-light" href="#"><h2>Link</h2></a>
+						<a class="nav-link text-light" href="create.php"><h2>Create</h2></a>
 					</li>
 				</ul>
 			</div>			

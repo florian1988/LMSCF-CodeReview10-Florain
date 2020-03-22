@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +23,15 @@
 		  			</a>
 				</li>
 				<li class="nav-item pt-2">
+
+
+
 			
-					<a class="nav-link text-light" href="../index.php"><h2>Active</h2></a>
+					<a class="nav-link text-light" href="../index.php"><h2>Home</h2></a>
 				</li>
 				<li class="nav-item pt-2">
 				
-					<a class="nav-link text-light" href="#"><h2>Link</h2></a>
+					<a class="nav-link text-light" href="../create.php"><h2>Create</h2></a>
 				</li>
 			</ul>
 			</div>
@@ -40,22 +45,46 @@
 			
 		</div>
 		<div class="comtainer-fluid ">
-			<div class="row">
-			<div class=" col-sm-4">
-				
-			</div>
-			<div class=" col-sm-4 bg-dark text-center">
-				<h1>sucessvuell</h1>
-				
-				<a class="nav-link text-light" href="../index.php"><h2>Home</h2></a>
-			</div>
-			<div class=" col-sm-4">
-				
-			</div>
-			</div>
+			
+			
+				<?php
 
+					require_once 'db_connect.php';
+
+					if($_POST){ $id_media =$_POST["id_media"];
+					$title =$_POST["title"];
+					$image =$_POST["image"];
+					$ISBN_Code =$_POST["ISBN_Code"];
+					$discription =$_POST["discription"];
+					$publish_date =$_POST["publish_date"];
+					$type =$_POST["type"];
+					$media_status =$_POST["media_status"];
 			
-			
+					$sql= "UPDATE `media` SET `title`='$title',`image`='$image',`ISBN_Code`='$ISBN_Code',`discription`='$discription',`publish_date`='$publish_date',`type`='$type',`media_status`='$media_status' WHERE id_media = $id_media";
+					
+					echo "<br>";
+
+					 if(mysqli_query($conn, $sql)){
+					 	echo '<div class="row">
+								<div class=" col-sm-4">
+									
+								</div>
+								<div class=" col-sm-4 welcome text-center text-light ">
+									<h1>successfully updated</h1>
+									<br>
+									<a class="nav-link text-light" href="index.php"><h2>Link to Library</h2></a>
+								</div>
+								<div class=" col-sm-4">
+									
+								</div>
+								</div>';
+					 }else{
+					 	echo "error";
+					 }
+					}
+				?>
+	
+		
 			
 		</div>
 		<div class="comtainer-fluid welcome">
@@ -69,11 +98,11 @@
 				<ul class="nav nav-pills justify-content-center">
 					<li class="nav-item pt-2">
 				
-						<a class="nav-link text-light" href="index.php"><h2>Active</h2></a>
+						<a class="nav-link text-light" href="../index.php"><h2>Home</h2></a>
 					</li>
 					<li class="nav-item pt-2">
 					
-						<a class="nav-link text-light" href="#"><h2>Link</h2></a>
+						<a class="nav-link text-light" href="../create.php"><h2>Create</h2></a>
 					</li>
 				</ul>
 			</div>			
