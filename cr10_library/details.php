@@ -1,3 +1,17 @@
+	<?php
+		require_once 'actions/db_connect.php';
+		if($_GET["id_media"]){
+		
+			$id_media = $_GET["id_media"];
+        
+			$sql = "SELECT * FROM media WHERE id_media = $id_media";
+			$result = mysqli_query($conn, $sql);
+
+			$row =  $result->fetch_assoc();
+
+		}
+	?>
+
 
 
 <!DOCTYPE html>
@@ -9,7 +23,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="../main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 	<header id="header" class="">
@@ -19,19 +33,16 @@
 
 				<li>
 					<a class="navbar-brand" href="#">
-		    			<img src="../img/header.jpg" width="100" height="70" alt="">
+		    			<img src="img/header.jpg" width="100" height="70" alt="">
 		  			</a>
 				</li>
 				<li class="nav-item pt-2">
-
-
-
 			
-					<a class="nav-link text-light" href="../index.php"><h2>Home</h2></a>
+					<a class="nav-link text-light" href="index.php"><h2>Home</h2></a>
 				</li>
 				<li class="nav-item pt-2">
 				
-					<a class="nav-link text-light" href="../create.php"><h2>Create</h2></a>
+					<a class="nav-link text-light" href="create.php"><h2>Create</h2></a>
 				</li>
 			</ul>
 			</div>
@@ -44,47 +55,52 @@
 
 			
 		</div>
-		<div class="comtainer-fluid ">
-			
-			
-				<?php
-
-					require_once 'db_connect.php';
-
-					if($_POST){ $id_media =$_POST["id_media"];
-					$title =$_POST["title"];
-					$image =$_POST["image"];
-					$ISBN_Code =$_POST["ISBN_Code"];
-					$discription =$_POST["discription"];
-					$publish_date =$_POST["publish_date"];
-					$type =$_POST["type"];
-					$media_status =$_POST["media_status"];
-			
-					$sql= "UPDATE `media` SET `title`='$title',`image`='$image',`ISBN_Code`='$ISBN_Code',`discription`='$discription',`publish_date`='$publish_date',`type`='$type',`media_status`='$media_status' WHERE id_media = $id_media";
-					
-					echo "<br>";
-
-					 if(mysqli_query($conn, $sql)){
-					 	echo '<div class="row">
-								<div class=" col-sm-4">
-									
-								</div>
-								<div class=" col-sm-4 welcome text-center text-light ">
-									<h1>successfully updated</h1>
-									<br>
-									<a class="nav-link text-light" href="../index.php"><h2>Link to Library</h2></a>
-								</div>
-								<div class=" col-sm-4">
-									
-								</div>
-								</div>';
-					 }else{
-					 	echo "error";
-					 }
-					}
-				?>
-	
 		
+		<div class="comtainer-fluid ">
+		<div class="row">
+		<div class=" col-sm-4">
+			
+		</div>
+		<div class=" col-sm-4  text-center">
+			
+			<?php echo '
+			<form  action="actions/a_update.php" method="post">
+					  	<div class="form-group ">
+						<div class="card mb-3">
+					  	<img src='.$row['image'].' class="card-img-top " alt="...">
+					  	<div class="card-body">
+					    <h1 class="card-title">Title: '.$row['title'].'</h1>
+					    <hr>
+					    <h1 class="card-text">Discription: '.$row['discription'].'</h1>
+					    <hr>
+					    <h1 class="card-text">ID-Media: '.$row['id_media'].'</h1>
+					    <hr>
+					    <h1 class="card-text">Publish_date: '.$row['publish_date'].'</h1>
+					    <hr>
+					    <h1 class="card-text"> Type: '.$row['type'].'</h1>
+					    <hr>
+					    <h1 class="card-text">Media-Status: '.$row['media_status'].'</h1>
+
+				 		 </div>
+
+					  		
+					  </div>
+					  						  
+				</form>'
+
+			?>
+		</div>
+		<div class=" col-sm-4">
+			
+		</div>
+		</div>
+
+			
+			
+			
+	
+
+			
 			
 		</div>
 		<div class="comtainer-fluid welcome">
@@ -98,11 +114,11 @@
 				<ul class="nav nav-pills justify-content-center">
 					<li class="nav-item pt-2">
 				
-						<a class="nav-link text-light" href="../index.php"><h2>Home</h2></a>
+						<a class="nav-link text-light" href="index.php"><h2>Home</h2></a>
 					</li>
 					<li class="nav-item pt-2">
 					
-						<a class="nav-link text-light" href="../create.php"><h2>Create</h2></a>
+						<a class="nav-link text-light" href="create.php"><h2>Create</h2></a>
 					</li>
 				</ul>
 			</div>			

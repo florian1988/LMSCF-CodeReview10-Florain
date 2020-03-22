@@ -55,8 +55,8 @@
 		</div> 
 		<div class="container-fluid text-light pb-2  jumbo">
 			<div class="container ">
-			    <h1 class="display-4">Fluid jumbotron</h1>
-			    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+			    <h1 class="display-4">The Medialist</h1>
+			    <p class="lead">You can lean Book's DVD's or you just hanging around in the library. </p>
   			</div>
 		</div>
 
@@ -68,10 +68,14 @@
 		include "actions/db_connect.php";
 
 		$sql = "SELECT * FROM  media";
+		
+		
 
-		$result = mysqli_query($conn, $sql);
-			
-		if ($result->num_rows == 0){
+		$result = mysqli_query($conn, $sql,);
+		
+
+		
+		if ($result->num_rows == 0 ){
 			echo "No result";
 		}elseif($result->num_rows == 1){
 			$row = $result->fetch_assoc();
@@ -83,23 +87,24 @@
 					  <img src='. $value["image"].' class="card-img-top" alt="...">
 					  <div class="card-body">
 					    <h5 class="card-title">' .$value["title"]. '</h5>
-					    <p class="card-text">'.$value["discription"] .'</p>
+					     
 					  </div>
 					  <ul class="list-group list-group-flush">
 					    <li class="list-group-item"> ISDN-Code: '. $value["ISBN_Code"].'</li>
 					    <li class="list-group-item">Published: '.$value["publish_date"] .'</li>
 					    <li class="list-group-item"> Type: '.$value["type"] .'</li>
 					    <li class="list-group-item"> Media status: '.$value["media_status"] .'</li>
+					    <li class="list-group-item discription"> '.$value["discription"] .'</li>
 					  </ul>
-					  <div class="card-body">
-					  	
-					     <a class="card-link" href="update.php?id_media='.$value["id_media"].'">Update</a>
+					  <div class="card-body">					  	
+					     <a class="card-link" href="update.php?id_media='.$value["id_media"].'">Update</a><br>
 					     <a class="card-link" href="delete.php?id_media='.$value["id_media"].'">Delete</a><br>
+					     <a class="card-link" href="details.php?id_media='.$value["id_media"].'">Read More</a><br>
+
 					  </div>
 				</div>';	
 			}
 		}
-	
 
 	?>
 
@@ -113,8 +118,8 @@
 	</div>
 	<div class="container-fluid pb-2 text-light jumbo">
 		<div class="container">
-		    <h1 class="display-4">Fluid jumbotron</h1>
-		    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+		    <h1 class="display-4">Thank's for your Membership</h1>
+		    <p class="lead">We like Book's. </p>
 		</div>
 	</div>
 	</main>

@@ -49,7 +49,9 @@
 				$id_media = $_GET["id_media"];
 				
 
+
 			$sql = "DELETE FROM media WHERE id_media = $id_media";
+			
 
 				if(mysqli_query($conn, $sql)){
 					echo '<div class="row">
@@ -68,7 +70,7 @@
 				}else{
 					echo "error";
 				}
-
+           
 
 			}
 			$conn->close();

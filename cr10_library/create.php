@@ -17,7 +17,7 @@
 
 				<li>
 					<a class="navbar-brand" href="#">
-		    			<img src="../img/header.jpg" width="100" height="70" alt="">
+		    			<img src="img/header.jpg" width="100" height="70" alt="">
 		  			</a>
 				</li>
 				<li class="nav-item pt-2">
@@ -50,30 +50,30 @@
 
 					
 				</div>
-				<div class="col-sm-8">
+				<div class="col-sm-8 welcome p-4">
 					<form  action="create.php" method="post">
 					  <div class="form-group ">
-					    	<label for="exampleFormControlInput1">Title</label>
+					    	<label class="text-light" for="exampleFormControlInput1">Title</label>
 						    <input class="form-control" name="title" type="text" placeholder="Title" value="">
-						    <label for="exampleFormControlInput1">Image</label>
+						    <label class="text-light" for="exampleFormControlInput1">Image</label>
 						    <input class="form-control" name="image" type="text" placeholder="Image" value="">
-						    <label for="exampleFormControlInput1">ISBN-Code</label>
+						    <label class="text-light" for="exampleFormControlInput1">ISBN-Code</label>
 						    <input class="form-control" name="ISBN_Code" type="text" placeholder="ISBN-Code" value="">
 					  	
-						    <label for="exampleFormControlTextarea1">Description</label>
+						    <label class="text-light" for="exampleFormControlTextarea1">Description</label>
 						    <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" placeholder="Description" rows="3" value=""></textarea>
 					  	
-					    	<label for="exampleFormControlInput1">Published</label>
+					    	<label class="text-light" for="exampleFormControlInput1">Published</label>
 						    <input class="form-control" name="publish_date" type="date" placeholder="Published" value="">
 					  	
-						    <label for="exampleFormControlSelect1">Type</label>
+						    <label class="text-light" for="exampleFormControlSelect1">Type</label>
 						    <select class="form-control" name="type" id="exampleFormControlSelect1" value="">
 						      <option>Book</option>
 						      <option>DVD</option>
 						      <option>CD</option>
 						    </select>
 						    
-						    <label for="exampleFormControlSelect1">Media Status</label>
+						    <label class="text-light" for="exampleFormControlSelect1">Media Status</label>
 						    <select class="form-control" name="media_status" id="exampleFormControlSelect1" value="">
 						      <option>Available</option>
 						      <option>Lent</option>
@@ -81,7 +81,7 @@
 
 							
 					  	</div>
-					  		<input onclick="myFunction()" type="submit" name="submit">					  
+					  		<input onclick="myFunction()" type="submit" class="btn btn-light btn-lg" name="submit">					  
 				</form>
 				</div>
 				<div class="col-sm-2">
@@ -109,7 +109,7 @@
 
 					}
 
-				?> 
+					?> 
 				</div>
 				
 			</div>
@@ -122,7 +122,7 @@
 		</div>
 	</main>
 	<footer>
-		<div class="container-fluid fixed-bottom footer">
+		<div class="container-fluid  footer">
 			<div>
 				<ul class="nav nav-pills justify-content-center">
 					<li class="nav-item ">

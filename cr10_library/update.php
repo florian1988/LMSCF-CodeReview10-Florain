@@ -59,46 +59,48 @@
 		</div>
 		<div class="comtainer-fluid ">
 			<div class="row">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 
 					
 				</div>
-				<div class="col-sm-8">
+				<div class="col-sm-6">
 					<form  action="actions/a_update.php" method="post">
-					  <div class="form-group ">
+					  <div class="form-group welcome p-4">
 					  		<input type="hidden" name="id_media" value="<?php echo $row['id_media'] ?>">
-					    	<label for="exampleFormControlInput1">Title</label>
+					    	<label class="text-light" for="exampleFormControlInput1">Title</label>
 						    <input class="form-control" name="title" type="text"  value="<?php echo $row['title'] ?>">
-						    <label for="exampleFormControlInput1">Image</label>
+						    <label class="text-light" for="exampleFormControlInput1">Image</label>
 						    <input class="form-control" name="image" type="text"  value="<?php echo $row['image'] ?>">
-						    <label for="exampleFormControlInput1">ISBN-Code</label>
+						    <label class="text-light" for="exampleFormControlInput1">ISBN-Code</label>
 						    <input class="form-control" name="ISBN_Code" type="text"  value="<?php echo $row['ISBN_Code'] ?>">
-					  	
-						    <label for="exampleFormControlTextarea1">Description</label>
-						    <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" rows="3" value="<?php echo $row['discription'] ?>"></textarea>
-					  	
-					    	<label for="exampleFormControlInput1">Published</label>
+					  		
+						    <label class="text-light" for="exampleFormControlTextarea1">Description</label>
+						    <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" rows="3" value="<?php echo $row['discription'] ?>"><?php echo $row['discription'] ?></textarea>
+					  	 
+					    	<label class="text-light" for="exampleFormControlInput1">Published</label>
 						    <input class="form-control" name="publish_date" type="date"  value="<?php echo $row['publish_date'] ?>">
 					  	
-						    <label for="exampleFormControlSelect1">Type</label>
+						    <label class="text-light" for="exampleFormControlSelect1">Type</label>
 						    <select class="form-control" name="type" id="exampleFormControlSelect1" value="<?php echo $row['type'] ?>">
 						      <option>Book</option>
 						      <option>DVD</option>
 						      <option>CD</option>
 						    </select>
 						    
-						    <label for="exampleFormControlSelect1">Media Status</label>
+						    <label class="text-light" for="exampleFormControlSelect1">Media Status</label>
 						    <select class="form-control" name="media_status" id="exampleFormControlSelect1" value="<?php echo $row['media_status'] ?>">
 						      <option>Available</option>
 						      <option>Lent</option>
 						    </select>
+						    <br>
 
-							
+							<input type="submit" class="btn btn-light btn-lg" value="Send">	
 					  	</div>
-					  		<input type="submit">					  
+					  						  
 				</form>
 				</div>
-				<div class="col-sm-2">
+				<br>
+				<div class="col-sm-3">
 		</div>
 				
 			</div>
@@ -111,7 +113,7 @@
 		</div>
 	</main>
 	<footer>
-		<div class="container-fluid fixed-bottom footer">
+		<div class="container-fluid  footer">
 			<div>
 				<ul class="nav nav-pills justify-content-center">
 					<li class="nav-item ">
